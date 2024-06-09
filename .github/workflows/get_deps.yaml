@@ -26,6 +26,8 @@ jobs:
       - run: just download_deps Lunchtimecode
         env:
           GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+      - run: git config user.name SilenLoc
+      - run: git config user.email silen.locatelli@gmx.ch
       - run: git add .
       - run: git commit -m "new deps"
       - run: git push

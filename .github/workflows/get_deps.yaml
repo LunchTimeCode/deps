@@ -26,6 +26,9 @@ jobs:
       - run: just download_deps Lunchtimecode
         env:
           GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r out.zip out
       - run: git config user.name SilenLoc
       - run: git config user.email silen.locatelli@gmx.ch
       - run: git add .

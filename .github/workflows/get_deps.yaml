@@ -20,7 +20,11 @@ jobs:
       - uses: taiki-e/install-action@v2
         with:
           tool: just@1
-      - run: just download_deps Lunchtimecode
+                    
+      - name: DreamyCollector       
+        uses: LunchTimeCode/renovate-graph-fork@v1.0.1
+        with:
+         out-dir: out
         env:
           GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
       - uses: montudor/action-zip@v1

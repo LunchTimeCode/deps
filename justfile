@@ -1,6 +1,6 @@
 
 install-graph:
-    npm i -g @silenloc/renovate-graph-dreamy
+    npm i -g @jamietanna/renovate-graph
 
 download_deps organization: install-graph
-    renovate-graph-dreamy --token $GITHUB_TOKEN --autodiscover --autodiscover-filter '{{organization}}/*'
+    renovate-graph --token $GITHUB_TOKEN --autodiscover --autodiscover-filter '{{organization}}/*'

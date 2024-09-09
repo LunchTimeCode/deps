@@ -25,6 +25,7 @@ jobs:
         run: just get_all_deps
         env: 
           GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
           
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.4

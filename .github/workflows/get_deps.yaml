@@ -1,4 +1,4 @@
-name: get deps
+name: Get and publish deps
 
 on:
   workflow_dispatch:
@@ -17,20 +17,19 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
-        with:
-            node-version: 18
       - uses: taiki-e/install-action@v2
         with:
           tool: just@1
-      - run: just download_deps Lunchtimecode
-        env:
-          GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
-      - uses: montudor/action-zip@v1
+          
+      - name: Getting all deps
+        run: just get_all_deps
+
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
+        
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          args: zip -qq -r out.zip out
-      - run: git config user.name SilenLoc
-      - run: git config user.email silen.locatelli@gmx.ch
-      - run: git add .
-      - run: git commit -m "new deps"
-      - run: git push
+            branch: gh-pages
+            folder: public
+            token: ${{ secrets.GITHUB_TOKEN }}
+            single-commit: true

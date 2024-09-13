@@ -1,6 +1,6 @@
 
 install-dreamy-cli:
-    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/LunchTimeCode/dreamy-cli/releases/download/v1.2.1/dreamy-cli-installer.sh | sh
+    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/LunchTimeCode/dreamy-cli/releases/download/v1.3.1/dreamy-cli-installer.sh | sh
 
 
 # we can filter more if we want

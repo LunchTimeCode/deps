@@ -10,4 +10,4 @@ get_all_repos:
 # see https://lunchtimecode.github.io/dreamy-cli/ for more info
 get_all_deps: install-dreamy-cli get_all_repos
     mkdir public
-    dy global_deps --org LunchTimeCode --ashtml > public/index.html
+    dy global_deps --ashtml > public/index.html
